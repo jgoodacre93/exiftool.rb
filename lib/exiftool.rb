@@ -30,7 +30,7 @@ class Exiftool
 
   # This is a string, not a float, to handle versions like "9.40" properly.
   def self.exiftool_version
-    @exiftool_version ||= `#{command} -ver 2> /dev/null`.chomp
+    @exiftool_version ||= `#{command} -ver 2> $null`.chomp
   end
 
   def self.expand_path(filename)
@@ -55,7 +55,7 @@ class Exiftool
     end.join(' ')
     # I'd like to use -dateformat, but it doesn't support timezone offsets properly,
     # nor sub-second timestamps.
-    cmd = "#{self.class.command} #{exiftool_opts} -j -coordFormat \"%.8f\" #{escaped_filenames} 2> /dev/null"
+    cmd = "#{self.class.command} #{exiftool_opts} -j -coordFormat \"%.8f\" #{escaped_filenames} 2> $null"
     json = `#{cmd}`.chomp
     raise ExiftoolNotInstalled if json == ''
 
