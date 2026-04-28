@@ -158,7 +158,7 @@ this if you've installed added the exiftool directory to the PATH of the shell t
 
 ## Change history
 
-### 1.4.2
+### 1.4.3
 
 - Added control character validation for filenames, `exiftool` command paths, and `exiftool` options.
 - Added control character sanitization for metadata keys while preserving metadata values.
